@@ -1,6 +1,21 @@
 {% extends 'hatome/base.html' %}
 
 {% block content %}
-	<h1>Our trusty pigeons have received your letter!</h1>
+	<div class="panel-group" id="message-accordion">
+	{% for message in messages %}
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#message-accordion" href="#collapse-{{ forloop.counter }}">{{ message.sender }}</a>
+				</h4>
+			</div>
+			<div id="collapse-{{ forloop.counter }}" class="panel-collapse collapse">
+				<div class="panel-body">
+					<p1>{{ message.content }}</p1>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+	</div>
 {% endblock %}
 

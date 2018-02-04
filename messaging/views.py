@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
+from .models import Message
 from .forms import MessageForm
 
 def mailbox(request):
-	return render(request, 'messaging/mailbox.html', {})
+	messages = Message.objects.filter()
+	return render(request, 'messaging/mailbox.html', { 'messages': messages })
 
 def create_message(request):
 	if request.method == 'POST':

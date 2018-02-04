@@ -1,11 +1,9 @@
-<html>
-	<head>
-	</head>
-	<body>
-		<form action="/messages/new" method="POST">
-			{% csrf_token %}
-			{{ form }}
-			<input type="submit" value="Submit"/>
-		</form>
-	</body>
-</html>
+{% extends 'hatome/base.html' %}
+{% block content %}
+	<form action="/messages/new" method="POST">
+		{% csrf_token %}
+		{{ form }}
+		<input type="submit" value="Submit"/>
+	</form>
+{% endblock %}
+
